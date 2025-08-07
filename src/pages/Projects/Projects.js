@@ -265,7 +265,7 @@ const Projects = () => {
       });
       setFilteredProjects(filtered);
     }
-  }, [activeFilter, projects]);
+  }, [activeFilter]);
   
   // Animations au scroll
   useEffect(() => {

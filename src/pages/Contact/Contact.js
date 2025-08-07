@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 // Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -299,25 +302,25 @@ const contactData = {
   title: "CONTACTEZ MOI",
   subtitle: "N'hésitez pas à me contacter pour discuter de vos projets ou opportunités de collaboration.",
   location: {
-    icon: "fas fa-map-marker-alt",
+    icon: faMapMarkerAlt,
     title: "Localisation",
     info: "Saint-Joseph, La Réunion"
   },
   email: {
-    icon: "fas fa-envelope",
+    icon: faEnvelope,
     title: "Email",
-    info: "contact@slup-dev.fr",
+    info: "boyer.dorian974@gmail.com",
     link: "mailto:boyer.dorian974@gmail.com"
   },
   social: [
     {
       name: "GitHub",
-      icon: "fab fa-github",
-      url: "https://github.com/devilghostg"
+      icon: faGithub,
+      url: "https://github.com/wapin-dev"
     },
     {
       name: "LinkedIn",
-      icon: "fab fa-linkedin",
+      icon: faLinkedin,
       url: "https://www.linkedin.com/in/dorian-boyer-736003203/"
     }
   ],
@@ -398,8 +401,27 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simuler un envoi de formulaire
-    setTimeout(() => {
+    // URL de l'API - utilise l'URL de production ou localhost en développement
+    const apiUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://portfolio.mon-viso.fr/api/send-email'  
+      : 'http://localhost:3001/api/send-email';
+    
+    // Appel à l'API backend pour envoyer l'email via SMTP
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formState.name,
+        email: formState.email,
+        subject: formState.subject,
+        message: formState.message
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('SUCCESS!', data);
       setIsSubmitting(false);
       setFormStatus({
         submitted: true,
@@ -421,7 +443,16 @@ const Contact = () => {
           message: ''
         });
       }, 5000);
-    }, 2000);
+    })
+    .catch(error => {
+      console.log('FAILED...', error);
+      setIsSubmitting(false);
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Erreur lors de l\'envoi du message. Veuillez réessayer.'
+      });
+    });
   };
   
   const containerVariants = {
@@ -465,7 +496,7 @@ const Contact = () => {
             <ContactDetailsContainer variants={containerVariants}>
               <ContactDetail key="location" variants={itemVariants}>
                 <div className="icon-container">
-                  <i className={contactData.location.icon}></i>
+                  <FontAwesomeIcon icon={contactData.location.icon} />
                 </div>
                 <div className="detail-content">
                   <h4>{contactData.location.title}</h4>
@@ -474,7 +505,7 @@ const Contact = () => {
               </ContactDetail>
               <ContactDetail key="email" variants={itemVariants}>
                 <div className="icon-container">
-                  <i className={contactData.email.icon}></i>
+                  <FontAwesomeIcon icon={contactData.email.icon} />
                 </div>
                 <div className="detail-content">
                   <h4>{contactData.email.title}</h4>
@@ -493,7 +524,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <i className={social.icon}></i>
+                  <FontAwesomeIcon icon={social.icon} />
                 </motion.a>
               ))}
             </SocialLinks>
@@ -637,7 +668,7 @@ const Contact = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.95410655067!2d2.2769954081275857!3d48.85883773941345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59586.56364188282!2d55.57962582167969!3d-21.37944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2182a2f0b1a6a2a7%3A0x5e9b1e6de1e9e59f!2sSaint-Joseph%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1691380825673!5m2!1sfr!2sfr" 
           title="Localisation"
           allowFullScreen=""
           loading="lazy"
