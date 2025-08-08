@@ -238,6 +238,36 @@ const Projects = () => {
         tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "Portfolio"],
         github: "https://github.com/devilghostg/slup-dev-fr", // à modifier si besoin
         demo: "https://slup-dev.fr"
+      },
+      {
+        id: 5,
+        title: "Application de tracking et reconnaissance animale",
+        category: ["Python", "IA"],
+        image: "/img/tracking-animal.png", // à remplacer par une image ou capture d'écran du projet
+        description: "Projet réalisé en 1 semaine dans le cadre de ma formation. Application utilisant Python pour détecter et suivre des animaux via la reconnaissance visuelle. Prototype fonctionnel, en cours d’amélioration.",
+        tags: ["Python", "OpenCV", "Reconnaissance animale", "IA", "Projet de formation"],
+        github: "https://github.com/devilghostg/tracking-animal", // modifie avec le lien exact
+        demo: "" // pas encore de démo en ligne
+      },
+      {
+        id: 6,
+        title: "Projet Machine Learning - Création d'une IA personnalisée",
+        category: ["Python", "Machine Learning"],
+        image: "/img/ml-project.png", // à remplacer par une image ou graphique lié au projet
+        description: "Développement en cours d’un modèle de Machine Learning visant à créer une intelligence artificielle personnalisée. Exploration des algorithmes supervisés et non supervisés, traitement des données, et optimisation des performances.",
+        tags: ["Python", "Machine Learning", "IA", "Data Science", "Projet en cours"],
+        github: "https://github.com/tonCompte/ml-project", // modifie avec le lien exact
+        demo: "" // pas encore de démo disponible
+      },
+      {
+        id: 7,
+        title: "Application JDR avec IA intégrée via Ollama",
+        category: ["Python", "IA", "Jeu"],
+        image: "/img/jdr-ia.png", // à remplacer par une capture d'écran ou logo du projet
+        description: "Développement en cours d’une application de jeu de rôle (JDR) où le maître du jeu est une IA gérée par Ollama. L’utilisateur peut choisir et contrôler l’instance de la partie pour une expérience interactive et immersive.",
+        tags: ["Python", "IA", "Ollama", "Jeu de rôle", "Projet en cours"],
+        github: "https://github.com/devilghostg/jdr-ia", // modifie avec le lien exact
+        demo: "" // pas encore de démonstration en ligne
       }
   ];
   
@@ -245,7 +275,9 @@ const Projects = () => {
   const filters = [
     { id: 'all', name: 'Tous' },
     { id: 'web', name: 'Web' },
-    { id: 'mobile', name: 'Mobile' }
+    { id: 'mobile', name: 'Mobile' },
+    { id: 'python', name: 'Python' },
+    { id: 'ia', name: 'IA' }
   ];
   
   // Filtrer les projets en fonction du filtre actif

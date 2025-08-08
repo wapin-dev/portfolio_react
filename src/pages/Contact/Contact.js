@@ -402,9 +402,12 @@ const Contact = () => {
     setIsSubmitting(true);
     
     // URL de l'API - utilise l'URL de production ou localhost en développement
-    const apiUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://portfolio.mon-viso.fr/api/send-email'  
-      : 'http://localhost:3001/api/send-email';
+    // const apiUrl = process.env.NODE_ENV === 'production' 
+    //   ? 'https://ms.mon-viso.fr/api/send-email'  
+    //   : 'http://localhost:3001/api/send-email';
+
+    const apiUrl = 'https://ms.mon-viso.fr/api/send-email';
+    // const apiUrl = 'http://localhost:3001/api/send-email';
     
     // Appel à l'API backend pour envoyer l'email via SMTP
     fetch(apiUrl, {

@@ -315,6 +315,12 @@ const About = () => {
       ]
     },
     {
+      company: "Centre de formation Expernet",
+      position: "Formation Concepteur Développeur d’Applications",
+      period: "2024 (en cours)",
+      description: "Formation professionnelle axée sur la conception, le développement et la maintenance d’applications web et logicielles. Approfondissement des compétences en architectures logicielles, gestion de bases de données, développement full-stack, optimisation des performances, et bonnes pratiques de gestion de projet."
+    },
+    {
     company: "Prevformation",
     position: "Concepteur Développeur d'Applications",
     period: "2024",
@@ -325,6 +331,24 @@ const About = () => {
         "Conception de la base de données et intégration avec MySQL",
         "Développement back-end en PHP avec une architecture modulaire"
     ]
+    },
+    {
+      company: "OpenClassrooms",
+      position: "Formation au langage C",
+      period: "2023",
+      description: "Apprentissage des bases du langage C : variables, structures de contrôle, pointeurs, gestion de la mémoire, manipulation de tableaux et de chaînes de caractères. Réalisation d’exercices pratiques pour développer la logique de programmation et la compréhension des concepts bas niveau."
+    },
+    {
+      company: "OpenClassrooms",
+      position: "Formation au langage Python et framework Django",
+      period: "2024",
+      description: "Apprentissage approfondi du langage Python et de la programmation orientée objet, mise en pratique avec le framework Django pour le développement d’applications web. Formation incluant la gestion des bases de données, la création d’API, l’authentification utilisateur, et les bonnes pratiques de développement."
+    },
+    {
+      company: "OpenClassrooms",
+      position: "Formation aux bases du développement web",
+      period: "2023",
+      description: "Apprentissage des fondamentaux du développement web : structure et sémantique HTML, mise en forme et design avec CSS, principes de responsive design et bonnes pratiques d’accessibilité. Mise en application à travers la création de pages et sites web statiques."
     },
     {
         company: "Arden Equipment",
@@ -338,6 +362,12 @@ const About = () => {
           "Optimisation des performances et de l’accessibilité du site",
           "Collaboration avec les équipes internes pour intégrer les besoins métier et les contenus multilingues"
         ]
+      },
+      {
+        company: "GRETA Sud Champagne",
+        position: "Études en développement web et web mobile",
+        period: "2023",
+        description: "Formation intensive d'un an axée sur l'apprentissage des bases et bonnes pratiques du développement web : HTML, CSS, PHP, Symfony, frameworks front-end, Bootstrap, Tailwind CSS, ainsi que la conception d'interfaces et l'intégration responsive. Préparation et obtention du titre professionnel de développeur web et web mobile."
       },
     {
       company: "E.Leclerc",

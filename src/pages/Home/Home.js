@@ -3,6 +3,19 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faReact, 
+  faPhp, 
+  faPython, 
+  faBootstrap, 
+  faGitAlt, 
+  faSymfony
+} from '@fortawesome/free-brands-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 
 const HomeContainer = styled.div`
   min-height: 100vh;
@@ -88,7 +101,7 @@ const BigText = styled(motion.h1)`
 `;
 
 const SubText = styled(motion.h2)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--gray);
   line-height: 1.1;
@@ -355,7 +368,7 @@ const Home = () => {
     name: "BOYER DORIAN",
     title: "FULL STACK DEVELOPER",
     specialization: "Web & Mobile",
-    description: "Agent spécialisé dans le développement web et mobile. Formation avancée à la faculté de Champagne-Ardenne et au GRETA. Actuellement en mission chez Expernet pour maîtriser la conception d'applications de nouvelle génération.",
+    description: "Développeur web et mobile passionné par la tech, toujours curieux et avide d'apprentissage. Je m'intéresse autant à la beauté du front-end qu'à la robustesse du back-end, en explorant des frameworks comme Symfony ou Django. En quête constante de nouveaux défis et d'échanges autour du code.",
     ctaText: "CONTACT",
     ctaLink: "/contact",
     githubLink: "https://github.com/devilghostg",
@@ -364,14 +377,16 @@ const Home = () => {
   };
 
   const skillsData = [
-    { name: "HTML5", icon: "fab fa-html5", color: "#E44D26" },
-    { name: "CSS3", icon: "fab fa-css3-alt", color: "#264DE4" },
-    { name: "JavaScript", icon: "fab fa-js", color: "#F7DF1E" },
-    { name: "React", icon: "fab fa-react", color: "#61DAFB" },
-    { name: "PHP", icon: "fab fa-php", color: "#777BB3" },
-    { name: "Python", icon: "fab fa-python", color: "#3776AB" },
-    { name: "Bootstrap", icon: "fab fa-bootstrap", color: "#7952B3" },
-    { name: "Git", icon: "fab fa-git-alt", color: "#F05032" },
+    { name: "HTML5", icon: faHtml5, color: "#E44D26" },
+    { name: "CSS3", icon: faCss3Alt, color: "#264DE4" },
+    { name: "JavaScript", icon: faJs, color: "#F7DF1E" },
+    { name: "React", icon: faReact, color: "#61DAFB" },
+    { name: "PHP", icon: faPhp, color: "#777BB3" },
+    { name: "Python", icon: faPython, color: "#3776AB" },
+    { name: "Bootstrap", icon: faBootstrap, color: "#7952B3" },
+    { name: "Git", icon: faGitAlt, color: "#F05032" },
+    { name: "Symfony", icon: faSymfony, color: "#777BB3" },
+    { name: "Django", icon: faCode, color: "#3776AB" },
   ];
   
   return (
@@ -436,7 +451,7 @@ const Home = () => {
                 borderColor={skill.color}
                 iconColor={skill.color}
               >
-                <i className={skill.icon + " icon"}></i>
+                <FontAwesomeIcon icon={skill.icon} className="icon" />
                 <h3>{skill.name}</h3>
               </SkillCard>
             ))}

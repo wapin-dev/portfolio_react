@@ -179,7 +179,7 @@ const Footer = () => {
           </FooterText>
           
           <Copyright variants={itemVariants}>
-            {currentYear} Votre Nom. Tous droits réservés.
+            {currentYear} BOYER Dorian. Tous droits réservés.
           </Copyright>
         </motion.div>
       </FooterContent>
