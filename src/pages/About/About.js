@@ -298,7 +298,7 @@ const About = () => {
         content: "Maîtrise des technologies web modernes, création d'interfaces immersives, optimisation des performances. Toujours en recherche de nouveaux défis techniques à relever."
       }
     ],
-    profileImage: "/img/roadtrip.jpeg"
+    profileImage: "/img/roadtrip.webp"
   };
 
   const experienceData = [

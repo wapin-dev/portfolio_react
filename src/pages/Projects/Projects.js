@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -91,18 +95,25 @@ const ProjectsGrid = styled(motion.div)`
 
 const ProjectCard = styled(motion.div)`
   position: relative;
-  background: rgba(15, 15, 15, 0.7);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  height: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;
   
   &:hover {
-    transform: translateY(-5px);
-    
     .project-image img {
-      transform: scale(1.05);
+      transform: scale(1.1);
+    }
+    
+    .overlay {
+      opacity: 0.9;
+    }
+    
+    .project-content {
+      transform: translateY(0);
     }
   }
 `;
@@ -172,11 +183,11 @@ const ProjectDescription = styled.p`
 const ProjectLinks = styled.div`
   display: flex;
   gap: 1rem;
-  margin-top: auto;
+  margin-top: 1rem;
 `;
 
 const ProjectLink = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--light);
@@ -187,9 +198,19 @@ const ProjectLink = styled.a`
   &:hover {
     color: var(--primary);
   }
+`;
+
+const ProjectDetailLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
   
-  i {
-    font-size: 1.2rem;
+  &:hover {
+    color: var(--light);
   }
 `;
 
@@ -213,7 +234,7 @@ const Projects = () => {
         id: 2,
         title: "Prevformation",
         category: "Web",
-        image: "/img/logo_prevformation.png", // à remplacer par l'image réelle si tu en as une
+        image: "/img/logo_prevformation.webp", // à remplacer par l'image réelle si tu en as une
         description: "Plateforme web de gestion de formations et de stagiaires permettant de gérer les utilisateurs, sessions et inscriptions avec une interface d'administration complète.",
         tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
         github: "https://github.com/devilghostg/prevformation", // à modifier si besoin
@@ -223,7 +244,7 @@ const Projects = () => {
         id: 3,
         title: "Donuts 3D",
         category: "Web",
-        image: "/img/donuts.png", // à remplacer par l'image réelle du site
+        image: "/img/donuts.webp", // à remplacer par l'image réelle du site
         description: "Site interactif présentant des donuts en 3D avec animations réalisées grâce à Three.js. Développement front-end en HTML et CSS pour une expérience visuelle immersive. (fictif)",
         tags: ["HTML5", "CSS3", "JavaScript", "Three.js"],
         github: "https://github.com/devilghostg/donuts-3d", // à modifier si besoin
@@ -233,7 +254,7 @@ const Projects = () => {
         id: 4,
         title: "Slup-Dev.fr",
         category: "Web",
-        image: "/img/logo.png", // à remplacer par l'image réelle
+        image: "/img/logo.webp", // à remplacer par l'image réelle
         description: "Site web personnel pour présenter Slup-Dev, mettant en avant mes projets, services et compétences en développement web avec un design moderne et responsive.",
         tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "Portfolio"],
         github: "https://github.com/devilghostg/slup-dev-fr", // à modifier si besoin
@@ -243,7 +264,7 @@ const Projects = () => {
         id: 5,
         title: "Application de tracking et reconnaissance animale",
         category: ["Python", "IA"],
-        image: "/img/tracking-animal.png", // à remplacer par une image ou capture d'écran du projet
+        image: "/img/tracking.webp", // à remplacer par une image ou capture d'écran du projet
         description: "Projet réalisé en 1 semaine dans le cadre de ma formation. Application utilisant Python pour détecter et suivre des animaux via la reconnaissance visuelle. Prototype fonctionnel, en cours d’amélioration.",
         tags: ["Python", "OpenCV", "Reconnaissance animale", "IA", "Projet de formation"],
         github: "https://github.com/devilghostg/tracking-animal", // modifie avec le lien exact
@@ -253,7 +274,7 @@ const Projects = () => {
         id: 6,
         title: "Projet Machine Learning - Création d'une IA personnalisée",
         category: ["Python", "Machine Learning"],
-        image: "/img/ml-project.png", // à remplacer par une image ou graphique lié au projet
+        image: "/img/ml.webp", // à remplacer par une image ou graphique lié au projet
         description: "Développement en cours d’un modèle de Machine Learning visant à créer une intelligence artificielle personnalisée. Exploration des algorithmes supervisés et non supervisés, traitement des données, et optimisation des performances.",
         tags: ["Python", "Machine Learning", "IA", "Data Science", "Projet en cours"],
         github: "https://github.com/tonCompte/ml-project", // modifie avec le lien exact
@@ -263,7 +284,7 @@ const Projects = () => {
         id: 7,
         title: "Application JDR avec IA intégrée via Ollama",
         category: ["Python", "IA", "Jeu"],
-        image: "/img/jdr-ia.png", // à remplacer par une capture d'écran ou logo du projet
+        image: "/img/jdr.webp", // à remplacer par une capture d'écran ou logo du projet
         description: "Développement en cours d’une application de jeu de rôle (JDR) où le maître du jeu est une IA gérée par Ollama. L’utilisateur peut choisir et contrôler l’instance de la partie pour une expérience interactive et immersive.",
         tags: ["Python", "IA", "Ollama", "Jeu de rôle", "Projet en cours"],
         github: "https://github.com/devilghostg/jdr-ia", // modifie avec le lien exact
@@ -436,12 +457,19 @@ const Projects = () => {
                 </ProjectTags>
                 <ProjectDescription>{project.description}</ProjectDescription>
                 <ProjectLinks>
-                  <ProjectLink href={project.github} target="_blank" rel="noopener noreferrer">
-                    {/* <i className="fab fa-github"></i> Code */}
-                  </ProjectLink>
-                  <ProjectLink href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-external-link-alt"></i> Demo
-                  </ProjectLink>
+                  {/* {project.github && (
+                    <ProjectLink href={project.github} target="_blank" rel="noopener noreferrer">
+                      <FontAwesomeIcon icon={faGithub} /> Code
+                    </ProjectLink>
+                  )} */}
+                  {project.demo && (
+                    <ProjectLink href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} /> Demo
+                    </ProjectLink>
+                  )}
+                  <ProjectDetailLink to={`/projects/${project.id}`}>
+                    <FontAwesomeIcon icon={faInfoCircle} /> Détails
+                  </ProjectDetailLink>
                 </ProjectLinks>
               </ProjectContent>
             </ProjectCard>
