@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const FooterContainer = styled.footer`
   padding: 3rem 0;
@@ -92,6 +94,13 @@ const itemVariants = {
   }
 };
 
+const FooterItems = [
+  { path: '/', label: 'Accueil' },
+  { path: '/about', label: 'À propos' },
+  { path: '/projects', label: 'Projets' },
+  { path: '/contact', label: 'Contact' }
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -106,72 +115,36 @@ const Footer = () => {
         >
           <SocialLinks>
             <SocialLink 
-              href="https://github.com" 
+              href="https://github.com/wapin-dev" 
               target="_blank" 
               rel="noopener noreferrer"
               variants={itemVariants}
               whileHover={{ scale: 1.2 }}
             >
-              <i className="fab fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} />
             </SocialLink>
             <SocialLink 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/dorian-boyer-736003203/" 
               target="_blank" 
               rel="noopener noreferrer"
               variants={itemVariants}
               whileHover={{ scale: 1.2 }}
             >
-              <i className="fab fa-linkedin"></i>
-            </SocialLink>
-            <SocialLink 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{ scale: 1.2 }}
-            >
-              <i className="fab fa-twitter"></i>
-            </SocialLink>
-            <SocialLink 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{ scale: 1.2 }}
-            >
-              <i className="fab fa-instagram"></i>
+              <FontAwesomeIcon icon={faLinkedin} />
             </SocialLink>
           </SocialLinks>
           
           <FooterNav>
-            <FooterLink 
-              href="/" 
-              variants={itemVariants}
-              whileHover={{ x: 5 }}
-            >
-              Accueil
-            </FooterLink>
-            <FooterLink 
-              href="/about" 
-              variants={itemVariants}
-              whileHover={{ x: 5 }}
-            >
-              À propos
-            </FooterLink>
-            <FooterLink 
-              href="/projects" 
-              variants={itemVariants}
-              whileHover={{ x: 5 }}
-            >
-              Projets
-            </FooterLink>
-            <FooterLink 
-              href="/contact" 
-              variants={itemVariants}
-              whileHover={{ x: 5 }}
-            >
-              Contact
-            </FooterLink>
+            {FooterItems.map((item, index) => (
+              <FooterLink 
+                key={item.path}
+                href={item.path}
+                variants={itemVariants}
+                whileHover={{ x: 5 }}
+              >
+                {item.label}
+            </FooterLink>  
+            ))}
           </FooterNav>
           
           <FooterText variants={itemVariants}>
