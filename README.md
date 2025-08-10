@@ -1,70 +1,153 @@
-# Getting Started with Create React App
+# Portfolio React | Slup-Dev
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Available Scripts
+Un portfolio professionnel moderne développé avec React, présentant mes compétences, projets et expériences en développement web.
 
-In the project directory, you can run:
+## 📋 Table des matières
 
-### `npm start`
+- [Aperçu](#aperçu)
+- [Fonctionnalités](#fonctionnalités)
+- [Technologies utilisées](#technologies-utilisées)
+- [Installation](#installation)
+- [Déploiement](#déploiement)
+- [Structure du projet](#structure-du-projet)
+- [Dépannage](#dépannage)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🔍 Aperçu
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ce portfolio a été conçu pour présenter mon travail et mes compétences en développement web de manière interactive et visuellement attrayante. Il comprend des sections pour mes projets, mon parcours professionnel, mes compétences techniques et mes coordonnées.
 
-### `npm test`
+Site en ligne: [https://portfolio.mon-viso.fr](https://portfolio.mon-viso.fr)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Fonctionnalités
 
-### `npm run build`
+- **Design responsive** - S'adapte parfaitement à tous les appareils
+- **Animations fluides** - Utilisation de Framer Motion et GSAP pour des transitions élégantes
+- **Mode sombre/clair** - Option de changement de thème
+- **Formulaire de contact** - Intégration avec EmailJS
+- **Projets interactifs** - Présentation détaillée de chaque projet
+- **Optimisé pour les performances** - Temps de chargement rapide et expérience utilisateur fluide
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologies utilisées
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React** - Bibliothèque JavaScript pour construire l'interface utilisateur
+- **React Router** - Navigation entre les pages
+- **Styled Components** - Stylisation des composants
+- **Framer Motion** - Animations et transitions
+- **GSAP** - Animations avancées
+- **Font Awesome** - Icônes
+- **EmailJS** - Fonctionnalité de formulaire de contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 💻 Installation
 
-### `npm run eject`
+Pour exécuter ce projet localement, suivez ces étapes:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Cloner le dépôt
+git clone https://github.com/votre-username/portfolio_react.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Accéder au répertoire du projet
+cd portfolio_react
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Installer les dépendances
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Démarrer le serveur de développement
+npm start
+```
 
-## Learn More
+L'application sera accessible à l'adresse [http://localhost:3000](http://localhost:3000).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Déploiement
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pour déployer l'application en production:
 
-### Code Splitting
+```bash
+# Créer une version optimisée pour la production
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cette commande génère une version optimisée de l'application dans le dossier `build/`.
 
-### Analyzing the Bundle Size
+### Configuration du serveur Apache
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Si vous déployez sur un serveur Apache, assurez-vous d'avoir un fichier `.htaccess` correctement configuré dans le dossier `build/`:
 
-### Making a Progressive Web App
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Configurer les types MIME correctement
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType application/json .json
+</IfModule>
+```
 
-### Advanced Configuration
+## 📁 Structure du projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+portfolio_react/
+├── public/                  # Fichiers statiques
+│   ├── index.html           # Page HTML principale
+│   ├── manifest.json        # Manifest pour PWA
+│   └── ...
+├── src/                     # Code source
+│   ├── components/          # Composants React réutilisables
+│   ├── pages/               # Pages principales
+│   ├── assets/              # Images, polices, etc.
+│   ├── styles/              # Styles globaux
+│   ├── App.js               # Composant principal
+│   └── index.js             # Point d'entrée
+├── package.json             # Dépendances et scripts
+└── README.md                # Documentation
+```
 
-### Deployment
+## 🔧 Dépannage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Problèmes courants
 
-### `npm run build` fails to minify
+#### Les fichiers CSS/JS ne se chargent pas correctement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Si vous rencontrez des erreurs MIME type lors du déploiement:
+
+1. Vérifiez que votre fichier `.htaccess` est correctement nommé (pas `.htacess`)
+2. Assurez-vous que les types MIME sont correctement configurés
+3. Vérifiez que votre hébergeur supporte les fichiers `.htaccess`
+
+#### Erreurs avec Font Awesome
+
+Si les icônes ne s'affichent pas:
+
+1. Vérifiez que vous utilisez les composants React de Font Awesome et non les classes CSS
+2. Assurez-vous d'importer correctement les icônes et le composant FontAwesomeIcon
+
+```jsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
+// Utilisation correcte
+<FontAwesomeIcon icon={faGithub} />
+```
+
+## 📞 Contact
+
+Pour toute question ou suggestion concernant ce projet, n'hésitez pas à me contacter:
+
+- **Site Web**: [portfolio.mon-viso.fr](https://portfolio.mon-viso.fr)
+- **Email**: votre-email@exemple.com
+- **GitHub**: [github.com/votre-username](https://github.com/votre-username)
+- **LinkedIn**: [linkedin.com/in/votre-profil](https://linkedin.com/in/votre-profil)
+
+---
+
+© 2025 Slup-Dev. Tous droits réservés.
