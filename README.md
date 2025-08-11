@@ -144,9 +144,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 Pour toute question ou suggestion concernant ce projet, n'hésitez pas à me contacter:
 
 - **Site Web**: [portfolio.mon-viso.fr](https://portfolio.mon-viso.fr)
-- **Email**: votre-email@exemple.com
-- **GitHub**: [github.com/votre-username](https://github.com/votre-username)
-- **LinkedIn**: [linkedin.com/in/votre-profil](https://linkedin.com/in/votre-profil)
+- **GitHub**: [github.com/votre-username](https://github.com/wapin-dev)
+- **LinkedIn**: [linkedin.com/in/votre-profil](https://linkedin.com/in/dorian)
 
 ---
 
